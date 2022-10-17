@@ -199,7 +199,7 @@ const playList = [
     {
       nameSong: "3107-2",
       singer: "W/n x Duongg x Nâu",
-      src: "https://stream.nixcdn.com/NhacCuaTui1011/31072-DuonggNauWn-6937818.mp3?st=GR5gmDC3S2QwXPcKD7fZrg&e=1665419556&download=true",
+      src: "https://stream.nixcdn.com/NhacCuaTui1011/31072-DuonggNnauWn-6937818.mp3?st=GR5gmDC3S2QwXPcKD7fZrg&e=1665419556&download=true",
       img: "https://avatar-ex-swe.nixcdn.com/song/2021/06/15/5/1/b/4/1623768316831_640.jpg"
     },
     {
@@ -237,6 +237,24 @@ const playList = [
         singer: "Vũ",
         src:"https://stream.nixcdn.com/Warner_Audio86/BuocQuaMuaCoDon-Vu-7847965.mp3?st=7bWSXaSY6mM0cFyBiHugUg&e=1665410914",
         img: "https://avatar-ex-swe.nixcdn.com/song/2020/12/11/4/0/f/e/1607643612541_640.jpg"
+      },
+      {
+        nameSong: "Nỗi Nhớ Mang Tên Mình",
+        singer: "Nguyễn Minh Cường",
+        src:"https://aredir.nixcdn.com/NhacCuaTui2028/NoiNhoMangTenMinhAcousticVersion-HoaiLam-7970231.mp3",
+        img: "https://yt3.ggpht.com/ytc/AMLnZu8Ql8GBvQa0TDIBdhNQJP7-7Z2HwFuWl2N-NpZw=s176-c-k-c0x00ffffff-no-rj"
+      },
+      {
+        nameSong: "Đế Vương",
+        singer: "Đình Dũng",
+        src:"https://aredir.nixcdn.com/NhacCuaTui1024/DeVuong-DinhDungACV-7121634.mp3",
+        img: "https://yt3.ggpht.com/uIcXYeNqzZ3sA9wxLXcfMiW5Zc25BIIYqXBIiEMQgl2SuANBsHjiXBka2CQIo4d4pCuJYUcNeg=s176-c-k-c0x00ffffff-no-rj"
+      },
+      {
+        nameSong: "Suýt nữa thì",
+        singer: "Andiez",
+        src:"https://aredir.nixcdn.com/NhacCuaTui966/SuytNuaThiChuyenDiCuaThanhXuanOST-Andiez-5524811.mp3",
+        img: "https://avatar-ex-swe.nixcdn.com/song/2018/07/19/6/0/9/e/1532010326915_500.jpg"
       },
 ]
 
