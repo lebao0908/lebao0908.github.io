@@ -256,6 +256,24 @@ const playList = [
         src:"https://aredir.nixcdn.com/NhacCuaTui966/SuytNuaThiChuyenDiCuaThanhXuanOST-Andiez-5524811.mp3",
         img: "https://avatar-ex-swe.nixcdn.com/song/2018/07/19/6/0/9/e/1532010326915_500.jpg"
       },
+      {
+        nameSong: "Breakfast",
+        singer: "Gducky",
+        src:"https://aredir.nixcdn.com/NhacCuaTui1006/Breakfast-DHGDuckyMinh-6809090.mp3",
+        img: "https://event.mediacdn.vn/2020/11/16/gducky-c-16055271501151778107040.png"
+      },
+      {
+        nameSong: "Phép màu",
+        singer: "Bray",
+        src:"https://aredir.nixcdn.com/NhacCuaTui954/PhepMau-BRay-5289793.mp3",
+        img: "https://avatar-ex-swe.nixcdn.com/singer/avatar/2020/05/27/6/9/5/0/1590562104987_600.jpg"
+      },
+      {
+        nameSong: "Con trai cưng",
+        singer: "Bray",
+        src:"https://aredir.nixcdn.com/NhacCuaTui970/ConTraiCung-BRayMasew-5731758.mp3",
+        img: "https://avatar-ex-swe.nixcdn.com/singer/avatar/2020/05/27/6/9/5/0/1590562104987_600.jpg"
+      },
 ]
 
 const textclip = $(".text-box")
