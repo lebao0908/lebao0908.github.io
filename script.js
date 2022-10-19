@@ -274,6 +274,12 @@ const playList = [
         src:"https://aredir.nixcdn.com/NhacCuaTui970/ConTraiCung-BRayMasew-5731758.mp3",
         img: "https://avatar-ex-swe.nixcdn.com/singer/avatar/2020/05/27/6/9/5/0/1590562104987_600.jpg"
       },
+      {
+        nameSong: "Người đi bao",
+        singer: "Low G",
+        src:"https://aredir.nixcdn.com/NhacCuaTui2022/NguoiDiBao-TlinhLowG-7370316.mp3",
+        img: "https://avatar-ex-swe.nixcdn.com/singer/avatar/2022/05/12/e/c/0/f/1652339314580_600.jpg"
+      },
 ]
 
 const textclip = $(".text-box")
