@@ -280,6 +280,13 @@ const playList = [
         src:"https://aredir.nixcdn.com/NhacCuaTui2022/NguoiDiBao-TlinhLowG-7370316.mp3",
         img: "https://avatar-ex-swe.nixcdn.com/singer/avatar/2022/05/12/e/c/0/f/1652339314580_600.jpg"
       },
+      {
+        nameSong: "Em đau rồi đấy",
+        singer: "Dương Yến Phi",
+        src:"https://aredir.nixcdn.com/NhacCuaTui2024/EmDauRoiDayLofiVersion-DuongYenPhiCoinKak-7609779.mp3",
+        img: "https://avatar-ex-swe.nixcdn.com/singer/avatar/2021/02/24/e/b/9/a/1614131115016_600.jpg"
+      },
+
 ]
 
 const textclip = $(".text-box")
