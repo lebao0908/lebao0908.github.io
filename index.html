@@ -1,71 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="https://th.bing.com/th/id/OIP.QX8UxflP5I8jftTWd0P3gwHaHa?pid=ImgD
-    et&rs=1" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <title>Le Gia Bao</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url("bgr.jpg");
+            background-size: cover;
+        }
+        .traitym{
+            width: 600px;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-52%,-20%);
+        }
+        svg .cls-1{
+            stroke: #fe0040;
+            stroke-width: 5px;
+            fill: none;
+            stroke-dasharray: 3700;
+            stroke-dashoffset: 3700;
+            animation: ani 6s forwards 1s;
+        }
+        @keyframes ani{
+            to{
+                stroke-dashoffset: 0;
+            }
+        }
+        svg .cls-3{
+            stroke: #fe0040;
+            stroke-width: 5px;
+            fill: none;
+            border-radius: 2px;
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: ani1 6s forwards 3s;
+        }
+        @keyframes ani1{
+            0%{
+                stroke-dashoffset: 2000;
+                fill: none;
+            }
+            100%{
+                stroke-dashoffset: 0;
+                fill: red;
+            }
+        }
+        #text{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -300%);
+            font-size: 23px;
+            font-family: cursive;
+            color: #fc406f;
+            cursor: pointer;
+            opacity: 0;
+            animation: anime 1s forwards;
+            animation-delay: 5.7s;
+        }
+        @keyframes anime{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        #text:hover{
+            color: red;
+            filter: drop-shadow(0 0 10px red);
+        }
+        .items{
+            position: absolute;
+            width: 0px;
+            height: 35px;
+            background: #ed1c24;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-450%);
+            opacity: 0;
+            animation: haha 2s forwards 4s;
+        }
+        @keyframes haha{
+            0%{
+                opacity: 0;
+                width: 0px;
+            }
+            50%{
+                opacity: 1;
+            }
+            90%{
+                opacity: 1;
+                width: 130px;
+            }
+            100%{
+                opacity: 0;
+                width: 130px;
+            }
+        }
+        .content-wrapper{
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%);
+            width: 250px;
+            height: 30px;
+            border: 2px solid red;
+            opacity: 0;
+            cursor: pointer;
+            animation: number 2s forwards 2s;
+        }
+        @keyframes number{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 4vh;
+            color: red;
+            font-size: 20px;
+            font-family: cursive;
+        }
+        .text1{
+            padding-right: 5px;
+        }
+        .container{
+            display: none;
+        }
+        .toast{
+            background: white;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 2s;
+            animation: toast-button 2s ease-in-out forwards;
+        }
+        @keyframes toast-button{
+            0%{
+                transform: translateY(-100%);
+            }
+            80%{
+                transform: translateY(0%);
+            }
+            90%,91%,92%,93%,94%,95%{
+                transform: translateY(-3%);
+            }
+            100%{
+                transform: translateY(0%);
+            }
+        }
+        .toast-wrapper{
+            margin-top: -200px;
+            position: absolute;
+            justify-content: center;
+            text-align: center;
+        }
+        .toast-wrapper img{
+            width: 70%;
+        }
+        p{
+            padding: 0;
+            margin-top: -10%;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: 'Ms Madi', chữ thảo;
+            animation: text-crush 2s forwards 1s;
+            cursor: pointer;
+        }
+        @keyframes text-crush{
+            0%{
+                color: black;
+            }
+            100%{
+                color: red;
+                filter: drop-shadow(0 0 15px red);
+            }
+        }
+        .icon{
+            font-size: 40px;
+            color: red;
+            opacity: 0;
+            padding: 0;
+            margin: 0;
+            transition: 1s;
+            cursor: pointer;
+            animation: mail 1s forwards 3s infinite;
+        }
+        @keyframes mail{
+            0%{
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+            20%,60%{
+                opacity: 1;
+                transform: rotate(5deg);
+            }
+            40%,80%{
+                opacity: 1;
+                transform: rotate(-5deg);
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
-<body background="https://codepen.io/lebao0908/pen/RwJgNGE">
-  <canvas id="bgCanvas"></canvas>
-  <div class="main">
+<body>
+    <div class="items"></div>
+    <div id="text" onclick="buttun();">Click vào đi!</div>
+    <div class="traitym">
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1875.93 493.34"><defs><style>.cls-1{fill:#fff;}.cls-1,.cls-2{stroke:#231f20;stroke-miterlimit:10;}.cls-2{fill:none;}.cls-3{fill:#ed1c24;}</style></defs><polyline class="cls-1" points="0 345.73 337.04 345.73 414.81 171.65 474.07 490.17 511.11 212.4 559.26 436.47 603.7 180.17 642.59 330.91 981.48 330.91 1294.44 330.91 1368.52 216.1 1459.26 447.58 1529.63 90.17 1614.82 323.51 1875.93 323.51"/><path class="cls-2" d="M1030.63,900.74" transform="translate(-49.15 -569.83)"/><path class="cls-3" d="M1030.34,900.74,1194.5,736.57c1.71-1.87,37.92-42.88,21.84-95.37-15-49-62-64.09-65.86-65.25-7-2-37.93-10.18-71,6.32-35.56,17.76-47.12,50.84-49.18,57.09-1.65-6.13-11.06-38.59-44.35-57.46-30.37-17.23-60-11.44-67-9.87-5.64,1.34-49.58,12.54-69.35,55.47-16.23,35.24-9.75,77.91,16.52,109.07Z" transform="translate(-49.15 -569.83)"/></svg>
+    </div>
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="text1">TRÁI TIM </div>
+            <span id="number">1000</span>
+        </div>
+    </div>
     <div class="container">
-      <div class="center">
-        <div class="avt">
-          <img src="https://avatars.githubusercontent.com/u/115927463?s=400&u=629950056901cb368ed2c6ca4dddfbd48a955582&v=4" alt="">         
+        <div class="toast">
+            <div class="toast-wrapper">
+                <div class="img-crush">
+                    <img src="crush.png" alt="">
+                </div>
+                <div class="text-crush">
+                    <p>Con có điều muốn nói. Ấn vào lá thư để đọc nhé!</p>
+                </div>
+                <div class="icon" onclick="mail();">
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+            </div>
         </div>
-        <div class="name">
-          <span>LE BAO</span>  
-        </div>
-      </div>
-      <div class="zalo">
-        <a>0949.335.552</a>
-      </div>
-      <div class="row">
-        <div class="icon">
-          <a href="https://www.facebook.com/legiabaousernotdie.04.notclone" target="_blank" class="facebook">
-            <img src="https://github.com/NVB07/starlight/blob/main/icon/icons8-facebook-100.png?raw=true" alt="">
-          </a>
-          <a href="https://www.tiktok.com/@toxic.2406" target="_blank" class="tiktok">
-            <img src="https://github.com/NVB07/starlight/blob/main/icon/icons8-tiktok-100.png?raw=true" alt="">
-          </a>
-          <a href="https://www.instagram.com/baolee.2406/" target="_blank" class="instagram">
-            <img src="https://github.com/NVB07/starlight/blob/main/icon/icons8-instagram-100.png?raw=true" alt="">
-          </a>
-          <a href="https://github.com/lebao0908" target="_blank" class="github">
-            <img src="https://github.com/NVB07/starlight/blob/main/icon/icons8-github-100.png?raw=true" alt="">
-          </a>
-        </div>
-      </div>
-      
     </div>
-    <div class="display">
-      <div class="photo-music">
-        <img src="" alt="" id="img">
-      </div>
-      <div class="text">
-        <div class="text-box">
-          <div class="name-music"></div>
-          <div class="name-music"></div>
-        </div>
-      </div>
-      <i class="single-name"></i>
-    </div>
-    <div class="player">
-      <i id="back-btn" class="fa-solid fa-backward control-btn "></i>
-      <i id="play-btn" class=" fa-solid fa-play control-btn big "></i>
-      <i id="pause-btn" class=" fa-solid fa-pause control-btn big "></i>
-      <i id="next-btn" class="fa-solid fa-forward control-btn "></i>
-      <audio id="audio" preload="metadata" type="audio/mp3" src=""></audio>
-      
-    </div>
-  </div>
-    <script src="./script.js">    
-	     
-    </script>
+    <script src="./java.js"></script>
 </body>
 </html>
