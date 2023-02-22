@@ -1,255 +1,1657 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
-        body{
-            margin: 0;
-            padding: 0;
-            background-image: url("bgr.jpg");
-            background-size: cover;
-        }
-        .traitym{
-            width: 600px;
-            height: 300px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-52%,-20%);
-        }
-        svg .cls-1{
-            stroke: #fe0040;
-            stroke-width: 5px;
-            fill: none;
-            stroke-dasharray: 3700;
-            stroke-dashoffset: 3700;
-            animation: ani 6s forwards 1s;
-        }
-        @keyframes ani{
-            to{
-                stroke-dashoffset: 0;
-            }
-        }
-        svg .cls-3{
-            stroke: #fe0040;
-            stroke-width: 5px;
-            fill: none;
-            border-radius: 2px;
-            stroke-dasharray: 2000;
-            stroke-dashoffset: 2000;
-            animation: ani1 6s forwards 3s;
-        }
-        @keyframes ani1{
-            0%{
-                stroke-dashoffset: 2000;
-                fill: none;
-            }
-            100%{
-                stroke-dashoffset: 0;
-                fill: red;
-            }
-        }
-        #text{
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -300%);
-            font-size: 23px;
-            font-family: cursive;
-            color: #fc406f;
-            cursor: pointer;
-            opacity: 0;
-            animation: anime 1s forwards;
-            animation-delay: 5.7s;
-        }
-        @keyframes anime{
-            0%{
-                opacity: 0;
-            }
-            100%{
-                opacity: 1;
-            }
-        }
-        #text:hover{
-            color: red;
-            filter: drop-shadow(0 0 10px red);
-        }
-        .items{
-            position: absolute;
-            width: 0px;
-            height: 35px;
-            background: #ed1c24;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-450%);
-            opacity: 0;
-            animation: haha 2s forwards 4s;
-        }
-        @keyframes haha{
-            0%{
-                opacity: 0;
-                width: 0px;
-            }
-            50%{
-                opacity: 1;
-            }
-            90%{
-                opacity: 1;
-                width: 130px;
-            }
-            100%{
-                opacity: 0;
-                width: 130px;
-            }
-        }
-        .content-wrapper{
-            position: absolute;
-            top: 70%;
-            left: 50%;
-            transform: translate(-50%);
-            width: 250px;
-            height: 30px;
-            border: 2px solid red;
-            opacity: 0;
-            cursor: pointer;
-            animation: number 2s forwards 2s;
-        }
-        @keyframes number{
-            0%{
-                opacity: 0;
-            }
-            100%{
-                opacity: 1;
-            }
-        }
-        .content{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 4vh;
-            color: red;
-            font-size: 20px;
-            font-family: cursive;
-        }
-        .text1{
-            padding-right: 5px;
-        }
-        .container{
-            display: none;
-        }
-        .toast{
-            background: white;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: 2s;
-            animation: toast-button 2s ease-in-out forwards;
-        }
-        @keyframes toast-button{
-            0%{
-                transform: translateY(-100%);
-            }
-            80%{
-                transform: translateY(0%);
-            }
-            90%,91%,92%,93%,94%,95%{
-                transform: translateY(-3%);
-            }
-            100%{
-                transform: translateY(0%);
-            }
-        }
-        .toast-wrapper{
-            margin-top: -200px;
-            position: absolute;
-            justify-content: center;
-            text-align: center;
-        }
-        .toast-wrapper img{
-            width: 70%;
-        }
-        p{
-            padding: 0;
-            margin-top: -10%;
-            font-size: 30px;
-            font-weight: bold;
-            font-family: 'Ms Madi', chữ thảo;
-            animation: text-crush 2s forwards 1s;
-            cursor: pointer;
-        }
-        @keyframes text-crush{
-            0%{
-                color: black;
-            }
-            100%{
-                color: red;
-                filter: drop-shadow(0 0 15px red);
-            }
-        }
-        .icon{
-            font-size: 40px;
-            color: red;
-            opacity: 0;
-            padding: 0;
-            margin: 0;
-            transition: 1s;
-            cursor: pointer;
-            animation: mail 1s forwards 3s infinite;
-        }
-        @keyframes mail{
-            0%{
-                opacity: 1;
-                transform: rotate(0deg);
-            }
-            20%,60%{
-                opacity: 1;
-                transform: rotate(5deg);
-            }
-            40%,80%{
-                opacity: 1;
-                transform: rotate(-5deg);
-            }
-            100%{
-                opacity: 1;
-            }
-        }
-    </style>
+	<meta name="google-site-verification" content="ZSBv3cB2rbA5Bccueg1j3_jhdXFdXzWWrul3N2VtNlE" />
+	<meta name="google-site-verification" content="MIopgwE7A_ksUQlg5rxGD7bm0DcqOoK1Ty6gV5y8x_0" />
+	<link rel="shortcut icon" href="//theme.hstatic.net/1000026602/1000983046/14/favicon.png?v=607" type="image/png" />
+	<meta charset="utf-8" />
+	<meta name="google-site-verification" content="MIopgwE7A_ksUQlg5rxGD7bm0DcqOoK1Ty6gV5y8x_0" />
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+	<title>
+		SomeHow
+	</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="canonical" href="https://somehow.vn/" />
+	<link rel="dns-prefetch" href="//hstatic.net">
+	<link rel="dns-prefetch" href="//sw001.hstatic.net">
+	<link rel="dns-prefetch" href="//connect.facebook.net">
+
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="SomeHow" />
+
+
+	<meta property="og:description"
+		content="SomeHow - thương hiệu thời trang được thành lập từ năm 2015 với mong muốn đóng góp giúp cho thời trang của mỗi người sẽ đẹp hơn qua mỗi ngày. Bằng cách, cập nhập hơn 100 mẫu mới mỗi tháng với những thiết kế bắt trend, chất liệu đa dạng, chất lượng may tốt - cùng giá thành đúng với giá trị sản phẩm." />
+
+	<meta property="og:url" content="https://somehow.vn/" />
+	<meta property="og:site_name" content="SomeHow" />
+
+	<meta name="google-site-verification" content="MIopgwE7A_ksUQlg5rxGD7bm0DcqOoK1Ty6gV5y8x_0" />
+
+	<link rel="stylesheet" href="style2.css">
+	<link href='//theme.hstatic.net/1000026602/1000983046/14/styles.scss.css?v=607' rel='stylesheet' type='text/css'
+		media='all' />
+	<meta name="facebook-domain-verification" content="a2aqn4qmmzqqm70okgx8hs1azqpzn2" />
+	<meta name="p:domain_verify" content="af0edf18fe88f1addaa66c13e9a2c932" />
 </head>
+
 <body>
-    <div class="items"></div>
-    <div id="text" onclick="buttun();">Click vào đi!</div>
-    <div class="traitym">
-        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1875.93 493.34"><defs><style>.cls-1{fill:#fff;}.cls-1,.cls-2{stroke:#231f20;stroke-miterlimit:10;}.cls-2{fill:none;}.cls-3{fill:#ed1c24;}</style></defs><polyline class="cls-1" points="0 345.73 337.04 345.73 414.81 171.65 474.07 490.17 511.11 212.4 559.26 436.47 603.7 180.17 642.59 330.91 981.48 330.91 1294.44 330.91 1368.52 216.1 1459.26 447.58 1529.63 90.17 1614.82 323.51 1875.93 323.51"/><path class="cls-2" d="M1030.63,900.74" transform="translate(-49.15 -569.83)"/><path class="cls-3" d="M1030.34,900.74,1194.5,736.57c1.71-1.87,37.92-42.88,21.84-95.37-15-49-62-64.09-65.86-65.25-7-2-37.93-10.18-71,6.32-35.56,17.76-47.12,50.84-49.18,57.09-1.65-6.13-11.06-38.59-44.35-57.46-30.37-17.23-60-11.44-67-9.87-5.64,1.34-49.58,12.54-69.35,55.47-16.23,35.24-9.75,77.91,16.52,109.07Z" transform="translate(-49.15 -569.83)"/></svg>
-    </div>
-    <div class="content-wrapper">
-        <div class="content">
-            <div class="text1">TRÁI TIM </div>
-            <span id="number">1000</span>
-        </div>
-    </div>
-    <div class="container">
-        <div class="toast">
-            <div class="toast-wrapper">
-                <div class="img-crush">
-                    <img src="crush.png" alt="">
-                </div>
-                <div class="text-crush">
-                    <p>Con có điều muốn nói. Ấn vào lá thư để đọc nhé!</p>
-                </div>
-                <div class="icon" onclick="mail();">
-                    <i class="fa-regular fa-envelope"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="./java.js"></script>
+	<div class="wrapper-fix-mobile">
+		<div class="main-body index">
+			<header class="header-main">
+				<div class="header-top clearfix hidden-xs hidden-sm">
+					<div class="container-fluid">
+						<div class="header-top-wrapper row">
+							<div class="col-md-4 col-sm-4">
+								<div class="first-menu-index">
+
+									<a href="nam.html" data-handle="product-menu-1" class="first-parent-menu active">
+										Nam
+									</a>
+
+
+									<a href="nu.html" data-handle="product-menu-2" class="first-parent-menu">
+										Nữ
+									</a>
+
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4 text-center">
+								<div class="logo">
+									<a href="/" class="brand">
+										<img src="//theme.hstatic.net/1000026602/1000983046/14/logo.jpg?v=607"
+											alt="SomeHow" />
+									</a>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4 text-right">
+								<div class="user-cart">
+									<div class="header-wrap-icon">
+										<span class="icon-account" aria-label="Tài khoản" title="Tài khoản">
+											<a href="login.html" class="visible-xs">
+												<span class="account-menu" aria-hidden="true">
+													<img src="//theme.hstatic.net/1000026602/1000983046/14/icon-user2.png?v=607"
+														alt="User" width="16">
+												</span>
+											</a>
+											<a href="login.html" class="hidden-xs">
+												<span class="account-menu" aria-hidden="true">
+													<img src="//theme.hstatic.net/1000026602/1000983046/14/icon-user2.png?v=607"
+														alt="User" width="16">
+												</span>
+											</a>
+										</span>
+										<span id="site-cart-handle" class="icon-cart 0 âs" aria-label="Open cart"
+											title="Giỏ hàng">
+											<a href="/cart" class="re-cart">
+												<span class="cart-menu" aria-hidden="true">
+													<img src="//theme.hstatic.net/1000026602/1000983046/14/icon-cart2.png?v=607"
+														alt="cart mobile" width="16">
+													<span class="count-holder"><span class="count">0</span></span>
+												</span>
+											</a>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="header-bottom clearfix hidden-xs hidden-sm">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-10 col-md-12">
+								<div class="menu-center">
+
+									<div class="content-menu active" data-handle="product-menu-1">
+
+										<ul class="main-nav-new clearfix">
+
+
+											<li class="active">
+												<a href="/" title="Trang chủ">
+													Trang chủ
+												</a>
+											</li>
+
+
+
+											<li class="active">
+												<a href="/" title="Bộ Sưu Tập">
+													Bộ Sưu Tập
+													<i class="fa fa-chevron-down" aria-hidden="true"></i>
+												</a>
+												<ul class="sub_menu">
+
+
+													<li class="">
+														<a href="http://somehow.vn/pages/giay-gravi-cap"
+															title="Giày Gravi-Cap SomeHow SS23">
+															Giày Gravi-Cap SomeHow SS23
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="https://somehow.vn/pages/ao-thun-360-gsm"
+															title="Chiếc Áo Thun Local Brand Dày Nhất ?">
+															Chiếc Áo Thun Local Brand Dày Nhất ?
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="https://somehow.vn/pages/monday-to-saturday"
+															title="Monday To Saturday">
+															Monday To Saturday
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/alone" title="Alone">
+															Alone
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/sh-diagram" title="SH DIAGRAM">
+															SH DIAGRAM
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="https://somehow.vn/pages/the-partner"
+															title="The Partner">
+															The Partner
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/afterglow" title="AfterGlow">
+															AfterGlow
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/skateboard" title="Skateboard">
+															Skateboard
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/garment-factory" title="Garment Factory">
+															Garment Factory
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/night-pool" title="Night Pool">
+															Night Pool
+														</a>
+													</li>
+
+
+												</ul>
+											</li>
+
+
+
+											<li class="">
+												<a href="index.html" title="SẢN PHẨM">
+													SẢN PHẨM
+													<i class="fa fa-chevron-down" aria-hidden="true"></i>
+												</a>
+												<ul class="sub_menu">
+
+
+													<li class="">
+														<a href="https://somehow.vn/collections/san-pham-moi-women"
+															title="SẢN PHẨM MỚI">
+															SẢN PHẨM MỚI
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="https://somehow.vn/collections/san-pham-khuyen-mai"
+															title="SALE 30 - 40 - 50%">
+															SALE 30 - 40 - 50%
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="" title="ÁO">
+															ÁO <i class="fa fa-chevron-right" aria-hidden="true"></i>
+														</a>
+														<ul class="sub_menu">
+
+
+															<li class="">
+																<a href="/collections/ao-khoac" title="ÁO KHOÁC">
+																	ÁO KHOÁC
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-thun" title="ÁO THUN">
+																	ÁO THUN
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-polo" title="ÁO POLO">
+																	ÁO POLO
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-so-mi" title="ÁO SƠ MI">
+																	ÁO SƠ MI
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-tanktop" title="ÁO TANKTOP">
+																	ÁO TANKTOP
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-ni" title="ÁO NỈ">
+																	ÁO NỈ
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-hoodies" title="ÁO HOODIES">
+																	ÁO HOODIES
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-vest" title="ÁO BLAZER">
+																	ÁO BLAZER
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-len" title="ÁO LEN">
+																	ÁO LEN
+																</a>
+															</li>
+
+
+														</ul>
+													</li>
+
+
+
+													<li class="">
+														<a href="index.html" title="QUẦN">
+															QUẦN <i class="fa fa-chevron-right" aria-hidden="true"></i>
+														</a>
+														<ul class="sub_menu">
+
+
+															<li class="">
+																<a href="/collections/quan-dui" title="QUẦN SHORT">
+																	QUẦN SHORT
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/quan-tay" title="QUẦN TÂY">
+																	QUẦN TÂY
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/quan-jean" title="QUẦN JEAN">
+																	QUẦN JEAN
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/quan-kaki" title="QUẦN KAKI">
+																	QUẦN KAKI
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/quan-jogger"
+																	title="QUẦN JOGGER - QUẦN DÀI">
+																	QUẦN JOGGER - QUẦN DÀI
+																</a>
+															</li>
+
+
+														</ul>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/set-quan-ao" title="SET QUẦN ÁO">
+															SET QUẦN ÁO
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/giay-dep" title="GIÀY - DÉP">
+															GIÀY - DÉP
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/boxer" title="BOXER">
+															BOXER
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/vo" title="VỚ">
+															VỚ
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/mat-kinh" title="MẮT KÍNH">
+															MẮT KÍNH
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/non" title="NÓN">
+															NÓN
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/that-lung" title="THẮT LƯNG">
+															THẮT LƯNG
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/vi" title="VÍ">
+															VÍ
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/balo-tui-xach" title="BALO - TÚI ĐEO">
+															BALO - TÚI ĐEO
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/phu-kien-khac" title="PHỤ KIỆN KHÁC">
+															PHỤ KIỆN KHÁC
+														</a>
+													</li>
+
+
+												</ul>
+											</li>
+
+
+
+											<li class="">
+												<a href="/pages/mix-match" title="Outfit Of The Day">
+													Outfit Of The Day
+												</a>
+											</li>
+
+
+
+											<li class="">
+												<a href=" " title="HƯỚNG DẪN - CHÍNH SÁCH">
+													HƯỚNG DẪN - CHÍNH SÁCH
+													<i class="fa fa-chevron-down" aria-hidden="true"></i>
+												</a>
+												<ul class="sub_menu">
+
+
+													<li class="">
+														<a href="/pages/chinh-sach-doi-tra-hang"
+															title="CHÍNH SÁCH ĐỔI TRẢ">
+															CHÍNH SÁCH ĐỔI TRẢ
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/chuong-trinh-uu-dai-sinh-nhat-khach-hang"
+															title="CHƯƠNG TRÌNH ƯU ĐÃI SINH NHẬT">
+															CHƯƠNG TRÌNH ƯU ĐÃI SINH NHẬT
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/chuong-trinh-membership"
+															title="CHƯƠNG TRÌNH MEMBERSHIP">
+															CHƯƠNG TRÌNH MEMBERSHIP
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/diem-somehow-la-gi" title="ĐIỂM SOMEHOW LÀ GÌ?">
+															ĐIỂM SOMEHOW LÀ GÌ?
+														</a>
+													</li>
+
+
+												</ul>
+											</li>
+
+
+
+											<li class="">
+												<a href="/pages/he-thong-cua-hang" title="HỆ THỐNG CỬA HÀNG">
+													HỆ THỐNG CỬA HÀNG
+												</a>
+											</li>
+
+
+
+											<li class="">
+												<a href="gioithieu.html" title="GIỚI THIỆU">
+													GIỚI THIỆU
+												</a>
+											</li>
+
+
+										</ul>
+
+									</div>
+
+
+									<div class="content-menu" data-handle="product-menu-2">
+
+										<ul class="main-nav-new clearfix">
+
+
+											<li class="">
+												<a href="https://somehow.vn/?view=women" title="Trang Chủ">
+													Trang Chủ
+												</a>
+											</li>
+
+
+
+											<li class="">
+												<a href=" " title="Sản Phẩm">
+													Sản Phẩm
+													<i class="fa fa-chevron-down" aria-hidden="true"></i>
+												</a>
+												<ul class="sub_menu">
+
+
+													<li class="">
+														<a href="/collections/san-pham-moi-women" title="SẢN PHẨM MỚI">
+															SẢN PHẨM MỚI
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/san-pham-khuyen-mai-women"
+															title="SALE 30 - 40 - 50%">
+															SALE 30 - 40 - 50%
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/collections/set-bo" title="SET BỘ">
+															SET BỘ
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="" title="ÁO">
+															ÁO <i class="fa fa-chevron-right" aria-hidden="true"></i>
+														</a>
+														<ul class="sub_menu">
+
+
+															<li class="">
+																<a href="/collections/ao-croptop" title="Áo Croptop">
+																	Áo Croptop
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-tanktop-women"
+																	title="Áo Tanktop">
+																	Áo Tanktop
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-thun-women" title="Áo Thun">
+																	Áo Thun
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-polo-women" title="Áo Polo">
+																	Áo Polo
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-bra-women" title="Áo Bra">
+																	Áo Bra
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-kieu" title="Áo Kiểu">
+																	Áo Kiểu
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-hoodies-women"
+																	title="Áo Hoodies">
+																	Áo Hoodies
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-so-mi-women" title="Áo Sơ Mi">
+																	Áo Sơ Mi
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-khoac-women" title="Áo Khoác">
+																	Áo Khoác
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/ao-blazer-women"
+																	title="Áo Blazer">
+																	Áo Blazer
+																</a>
+															</li>
+
+
+														</ul>
+													</li>
+
+
+
+													<li class="">
+														<a href="" title="SUIT">
+															SUIT <i class="fa fa-chevron-right" aria-hidden="true"></i>
+														</a>
+														<ul class="sub_menu">
+
+
+															<li class="">
+																<a href="/collections/bodysuit" title="Bodysuit">
+																	Bodysuit
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/jumpsuit" title="Jumpsuit">
+																	Jumpsuit
+																</a>
+															</li>
+
+
+														</ul>
+													</li>
+
+
+
+													<li class="">
+														<a href="" title="ĐẦM">
+															ĐẦM <i class="fa fa-chevron-right" aria-hidden="true"></i>
+														</a>
+														<ul class="sub_menu">
+
+
+															<li class="">
+																<a href="/collections/dam-ngan" title="Đầm Ngắn">
+																	Đầm Ngắn
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/dam-dai" title="Đầm Dài">
+																	Đầm Dài
+																</a>
+															</li>
+
+
+														</ul>
+													</li>
+
+
+
+													<li class="">
+														<a href="" title="QUẦN">
+															QUẦN <i class="fa fa-chevron-right" aria-hidden="true"></i>
+														</a>
+														<ul class="sub_menu">
+
+
+															<li class="">
+																<a href="/collections/quan-short-women"
+																	title="Quần Short">
+																	Quần Short
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/quan-jean-women"
+																	title="Quần Jean">
+																	Quần Jean
+																</a>
+															</li>
+
+
+
+															<li class="">
+																<a href="/collections/quan-kieu" title="Quần Dài">
+																	Quần Dài
+																</a>
+															</li>
+
+
+														</ul>
+													</li>
+													<li class="">
+														<a href="" title="CHÂN VÁY">
+															CHÂN VÁY <i class="fa fa-chevron-right"
+																aria-hidden="true"></i>
+														</a>
+														<ul class="sub_menu">
+
+
+															<li class="">
+																<a href="/collections/chan-vay-ngan"
+																	title="Chân Váy Ngắn">
+																	Chân Váy Ngắn
+																</a>
+															</li>
+															<li class="">
+																<a href="/collections/chan-vay-dai"
+																	title="Chân Váy Dài">
+																	Chân Váy Dài
+																</a>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li class="">
+												<a href="/pages/mixmatch-women" title="Outfit Of The Day">
+													Outfit Of The Day
+												</a>
+											</li>
+
+
+
+											<li class="">
+												<a href="" title="Bộ Sưu Tập">
+													Bộ Sưu Tập
+													<i class="fa fa-chevron-down" aria-hidden="true"></i>
+												</a>
+												<ul class="sub_menu">
+
+
+													<li class="">
+														<a href="https://somehow.vn/pages/the-partner-women"
+															title="The Partner">
+															The Partner
+														</a>
+													</li>
+
+
+												</ul>
+											</li>
+
+
+
+											<li class="">
+												<a href="" title="Hướng Dẫn - Chính Sách">
+													Hướng Dẫn - Chính Sách
+													<i class="fa fa-chevron-down" aria-hidden="true"></i>
+												</a>
+												<ul class="sub_menu">
+
+
+													<li class="">
+														<a href="/pages/chinh-sach-doi-tra-hang"
+															title="CHÍNH SÁCH ĐỔI TRẢ">
+															CHÍNH SÁCH ĐỔI TRẢ
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/chuong-trinh-uu-dai-sinh-nhat-khach-hang"
+															title="CHƯƠNG TRÌNH ƯU ĐÃI SINH NHẬT">
+															CHƯƠNG TRÌNH ƯU ĐÃI SINH NHẬT
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/chuong-trinh-membership"
+															title="CHƯƠNG TRÌNH MEMBERSHIP">
+															CHƯƠNG TRÌNH MEMBERSHIP
+														</a>
+													</li>
+
+
+
+													<li class="">
+														<a href="/pages/diem-somehow-la-gi" title="ĐIỂM SOMEHOW LÀ GÌ?">
+															ĐIỂM SOMEHOW LÀ GÌ?
+														</a>
+													</li>
+
+
+												</ul>
+											</li>
+
+
+										</ul>
+
+									</div>
+
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-12">
+								<div class="header-search">
+									<div class="search-box wpo-wrapper-search">
+										<form action="/search" class="searchform-product ultimate-search">
+											<div class="wpo-search-inner">
+												<input type="hidden" name="type" value="product" />
+												<input required id="inputSearchAuto-3" class="input-search" name="q"
+													maxlength="40" autocomplete="off" type="text" size="20"
+													placeholder="" aria-label="input search">
+											</div>
+											<button type="submit" class="btn-search " id="btnSearchAuto-3"
+												aria-label="Tìm kiếm">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="20"
+													height="20">
+													<path
+														d="M37.613,36.293l-9.408-9.432a15.005,15.005,0,1,0-1.41,1.414L36.2,37.707A1,1,0,1,0,37.613,36.293ZM3.992,17A12.967,12.967,0,1,1,16.959,30,13,13,0,0,1,3.992,17Z">
+													</path>
+												</svg>
+											</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<section class="header-new visible-xs visible-sm">
+					<div class="container clearfix ">
+						<div class="header-container clearfix">
+							<div class="clearfix flex-row">
+								<div class="js-toggle-left-slidebar js-menu-mobile">
+									<div class="trigger-menu">
+										<img src="//theme.hstatic.net/1000026602/1000983046/14/menu.png?v=607"
+											alt="icon-menu" />
+									</div>
+									<div class="trigger-email">
+										<span class="icon-search" aria-label="Tìm kiếm" title="Tìm kiếm">
+											<a href="/search">
+												<span class="search-menu" aria-hidden="true">
+													<img
+														src="//theme.hstatic.net/1000026602/1000983046/14/icon-search2.png?v=607" />
+												</span>
+											</a>
+										</span>
+									</div>
+								</div>
+								<div class="logo">
+									<a href="/">
+										<img alt="SomeHow"
+											src="//theme.hstatic.net/1000026602/1000983046/14/logo.jpg?v=607">
+									</a>
+								</div>
+								<div class="header-wrap-icon">
+
+									<span class="icon-account" aria-label="Tài khoản" title="Tài khoản">
+										<a href="/account/login">
+											<span class="account-menu" aria-hidden="true">
+												<img
+													src="//theme.hstatic.net/1000026602/1000983046/14/icon-user2.png?v=607" />
+											</span>
+										</a>
+									</span>
+									<span id="site-cart-handle" class="icon-cart 0 adasdasds" aria-label="Open cart"
+										title="Giỏ hàng">
+										<a href="/cart" class="re-cart">
+											<span class="cart-menu" aria-hidden="true">
+												<img
+													src="//theme.hstatic.net/1000026602/1000983046/14/icon-cart2.png?v=607" />
+												<span class="count-holder"><span class="count">0</span></span>
+											</span>
+										</a>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="first-menu-index section-dir clearfix visible-xs">
+
+						<a href="nam.html" data-handle="product-menu-1" class="first-parent-menu active">
+							<span>Nam</span>
+						</a>
+						<a href="nu.html" data-handle="product-menu-2" class="first-parent-menu">
+							<span>Nữ</span>
+						</a>
+					</div>
+				</section>
+			</header>
+			<div id="owl-index" class="">
+				<div class="item">
+					<a href="https://somehow.vn/pages/ao-thun-360-gsm">
+						<picture>
+							<source media="(max-width: 480px)"
+								srcset="//theme.hstatic.net/1000026602/1000983046/14/slideshow_1_mobile.jpg?v=607">
+							<source media="(min-width: 481px)"
+								srcset="//theme.hstatic.net/1000026602/1000983046/14/slideshow_1.jpg?v=607">
+							<img data-src="//theme.hstatic.net/1000026602/1000983046/14/slideshow_1.jpg?v=607"
+								width="1440" height="450" class="lazyload dt-width-100 hidden-xs" alt="">
+							<img data-src="//theme.hstatic.net/1000026602/1000983046/14/slideshow_1_mobile.jpg?v=607"
+								width="414" height="151" class="lazyload dt-width-100 visible-xs" alt="">
+						</picture>
+						<div class="slider-caption">
+							<div class="slider-title">
+
+							</div>
+							<div class="slider-des ">
+							</div>
+							<a href="https://somehow.vn/pages/ao-thun-360-gsm" class="slider-btn hidden"></a>
+						</div>
+					</a>
+				</div>
+			</div>
+			<section id="index-coupon">
+				<div class="container">
+					<div class="content-flashsale">
+						<div class="tab text-center">
+							<div class="home-product-tab hide">
+
+							</div>
+						</div>
+						<div class="content-tabinfo row">
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="load-ajax-product-index">
+
+			</div>
+			<div class="section-banner-hihi">
+				<a href="https://somehow.vn/pages/mix-match">
+					<img class="lazyload" data-sizes="auto"
+						data-src="//theme.hstatic.net/1000026602/1000983046/14/use_title_bottom_tab_show_banner.jpg?v=607"
+						data-lowsrc="//theme.hstatic.net/1000026602/1000983046/14/use_title_bottom_tab_show_banner.jpg?v=607"
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+						alt="banner" />
+				</a>
+			</div>
+			<div class="row">
+				<div class="index-title">
+					<div class="htp-tablinks">
+
+						<a href="javascript:void(0)" class="htp-tablink active mix-match" data-id="htp-tab-1">
+							Outfit Of The Day
+						</a>
+
+
+
+						<a href="javascript:void(0)" class="htp-tablink highlight" data-id="htp-tab-3"
+							data-handle="san-pham-khuyen-mai">
+							Sale 30 - 40 - 50%
+						</a>
+
+
+					</div>
+					<div class="htp-tabcontents">
+						<div class="htp-tabcontent htp-tabcontent-1cc active" data-id="htp-tab-1">
+							<div id="owl-index-footer" class="content-product-list clearfix">
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-18-humble" data-title="Look 18"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1390_4043_20230217040653965.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1390_4043_20230217040653965.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1390_4043_20230217040653965.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-17-humble" data-title="Look 17"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1389_3984_20230217040616453.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1389_3984_20230217040616453.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1389_3984_20230217040616453.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-16-humble" data-title="Look 16"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1388_3772_20230217040341095.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1388_3772_20230217040341095.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1388_3772_20230217040341095.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-15-humble" data-title="Look 15"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1387_3932_20230217040257957.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1387_3932_20230217040257957.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1387_3932_20230217040257957.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-14-humble" data-title="Look 14"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1386_4219_20230217040209827.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1386_4219_20230217040209827.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1386_4219_20230217040209827.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-13-humble" data-title="Look 13"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1385_4799_20230217040121012.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1385_4799_20230217040121012.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1385_4799_20230217040121012.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-12-humble" data-title="Look 12"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1384_4315_20230217040020639.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1384_4315_20230217040020639.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1384_4315_20230217040020639.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-11-humble" data-title="Look 11"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1383_4500_20230217035928581.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1383_4500_20230217035928581.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1383_4500_20230217035928581.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-10-humble" data-title="Look 10"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1382_3890_20230217035821310.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1382_3890_20230217035821310.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1382_3890_20230217035821310.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-9-humble" data-title="Look 9"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1381_4135_20230217035725781.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1381_4135_20230217035725781.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1381_4135_20230217035725781.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-8-humble" data-title="Look 8"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1380_3844_20230217035640701.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1380_3844_20230217035640701.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1380_3844_20230217035640701.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-7-humble" data-title="Look 7"
+										data-category="Humble">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1379_3652_20230217035532090.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1379_3652_20230217035532090.jpg"
+											src="https://mixmatch.bluecore.vn/ImagesUpload/product_images_resize/1379_3652_20230217035532090.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-6-humble" data-title="Look 6"
+										data-category="Humble">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1378_4690_20230217035419483.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1378_4690_20230217035419483.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1378_4690_20230217035419483.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1378_4690_20230217035419483.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-5-humble" data-title="Look 5"
+										data-category="Humble">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1377_4609_20230217035316590.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1377_4609_20230217035316590.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1377_4609_20230217035316590.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1377_4609_20230217035316590.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-4-humble" data-title="Look 4"
+										data-category="Humble">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1376_3627_20230217035146183.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1376_3627_20230217035146183.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1376_3627_20230217035146183.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1376_3627_20230217035146183.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-3-humble" data-title="Look 3"
+										data-category="Humble">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1375_4389_20230217034916043.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1375_4389_20230217034916043.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1375_4389_20230217034916043.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1375_4389_20230217034916043.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-2-humble" data-title="Look 2"
+										data-category="Humble">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1374_3591_20230217034828645.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1374_3591_20230217034828645.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1374_3591_20230217034828645.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1374_3591_20230217034828645.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-1-humble" data-title="Look 1"
+										data-category="Humble">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1373_4870_20230217034736551.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1373_4870_20230217034736551.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1373_4870_20230217034736551.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1373_4870_20230217034736551.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-64-flexible" data-title="Look 64"
+										data-category="Flexible">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1372_1972_20230204051945690.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1372_1972_20230204051945690.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1372_1972_20230204051945690.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1372_1972_20230204051945690.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-63-flexible" data-title="Look 63"
+										data-category="Flexible">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1371_1840_20230204043724680.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1371_1840_20230204043724680.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1371_1840_20230204043724680.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1371_1840_20230204043724680.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-62-flexible" data-title="Look 62"
+										data-category="Flexible">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1370_1755_20230204043616908.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1370_1755_20230204043616908.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1370_1755_20230204043616908.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1370_1755_20230204043616908.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-61-flexible" data-title="Look 61"
+										data-category="Flexible">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1369_1702_20230204043455597.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1369_1702_20230204043455597.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1369_1702_20230204043455597.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1369_1702_20230204043455597.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-60-flexible" data-title="Look 60"
+										data-category="Flexible">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1368_2006_20230204043315318.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1368_2006_20230204043315318.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1368_2006_20230204043315318.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1368_2006_20230204043315318.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+
+								<div class="item col-md-2 col-xs-4 col-sm-4">
+									<a class="page-mixmatch div-img" href="/pages/look-59-flexible" data-title="Look 59"
+										data-category="Flexible">
+										<img
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1367_1077_20230204043150090.jpg">
+										<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
+											data-src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1367_1077_20230204043150090.jpg"
+											data-lowsrc="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1367_1077_20230204043150090.jpg"
+											src="https://mixmatch.bluecore.vn//ImagesUpload/product_images_resize/1367_1077_20230204043150090.jpg"
+											sizes="197px">
+
+									</a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+
+	</div>
+	</div>
+
+	<footer>
+
+		<div class="footer-block">
+			<div class="container">
+				<div class="content-map-footer hidden">
+
+					<a href="#" data-toggle="modal" data-target="#modalMap"
+						data-url="/blogs/diem-ban-binh-thanh/43-kham-thien-quan-dong-da">
+						43 Khâm Thiên - Quận Đống Đa
+					</a>
+
+					<a href="#" data-toggle="modal" data-target="#modalMap"
+						data-url="/blogs/diem-ban-binh-thanh/237-truong-dinh-bien-hoa">
+						237 Trương Định - Thành Phố Biên Hòa
+					</a>
+
+					<a href="#" data-toggle="modal" data-target="#modalMap"
+						data-url="/blogs/diem-ban-binh-thanh/164-166-truong-chinh-phuong-13-quan-tan-binh">
+						164-166 Trường Chinh, Phường 13, Quận Tân Bình
+					</a>
+
+					<a href="#" data-toggle="modal" data-target="#modalMap"
+						data-url="/blogs/diem-ban-binh-thanh/1002-quang-trung-phuong-8-quan-go-vap">
+						1002 Quang Trung, Phường 8, Quận Gò Vấp
+					</a>
+
+					<a href="#" data-toggle="modal" data-target="#modalMap"
+						data-url="/blogs/diem-ban-binh-thanh/79-nguyen-khang-trung-hoa-cau-giay">
+						79 Nguyễn Khang, Trung Hòa, Cầu Giấy
+					</a>
+
+					<a href="#" data-toggle="modal" data-target="#modalMap"
+						data-url="/blogs/diem-ban-binh-thanh/188-16-thanh-thai-phuong-12-quan-10">
+						188/16 Thành Thái Phường 12 Quận 10
+					</a>
+
+					<a href="#" data-toggle="modal" data-target="#modalMap"
+						data-url="/blogs/diem-ban-binh-thanh/32b-nguyen-bieu-phuong-1-quan-5">
+						332 Cao Đạt Phường 1 - Quận 5
+					</a>
+
+					<a href="#" data-toggle="modal" data-target="#modalMap" data-url="/blogs/diem-ban-binh-thanh/17bis">
+						17bis Huỳnh Đình Hai Phường 14 - Quận Bình Thạnh, HCM
+					</a>
+				</div>
+				<div class="row">
+					<div class="footer-address clearfix col-md-8 col-xs-12 hidden-xs">
+						<div class="row">
+							<div class="col-md-6 col-sm-6 col-xs-12 footer-shop">
+								<h2 class="city">TP. Hồ Chí Minh</h2>
+								<div>
+									<div class="adress-item">
+										<ul>
+											<li class="add"
+												data-store="17bis Huỳnh Đình Hai Phường 14 - Quận Bình Thạnh">
+												<strong>Store 1:</strong> 17bis Huỳnh Đình Hai Phường 14 - Quận
+												Bình Thạnh
+											</li>
+										</ul>
+									</div>
+									<div class="adress-item">
+										<ul>
+											<li class="add" data-store="332 Cao Đạt Phường 1 - Quận 5">
+												<strong>Store 2:</strong> 332 Cao Đạt Phường 1 - Quận 5
+											</li>
+										</ul>
+									</div>
+									<div class="adress-item">
+										<ul>
+											<li class="add" data-store="539 Sư Vạn Hạnh Phường 13 - Quận 10">
+												<strong>Store 3:</strong> 539 Sư Vạn Hạnh Phường 13 - Quận 10
+											</li>
+										</ul>
+									</div>
+									<div class="adress-item">
+										<ul>
+											<li class="add" data-store="1002 Quang Trung Phường 8 - Quận Gò Vấp">
+												<strong>Store 4:</strong> 1002 Quang Trung Phường 8 - Quận Gò
+												Vấp
+											</li>
+										</ul>
+									</div>
+									<div class="adress-item">
+										<ul>
+											<li class="add" data-store="164 Trường Chinh Phường 13 - Quận Tân Bình">
+												<strong>Store 5:</strong> 164 Trường Chinh Phường 13 - Quận Tân
+												Bình
+											</li>
+										</ul>
+									</div>
+									<div class="adress-item">
+										<ul>
+											<li class="add" data-store="148 Nguyễn Trãi P.Bến Thành - Quận 1">
+												<strong>Store 6:</strong> 148 Nguyễn Trãi P.Bến Thành - Quận 1
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6 col-xs-12 footer-shop">
+								<h2 class="city">Hà nội</h2>
+								<div class="adress-item hn">
+									<ul>
+										<li class="add" data-store="43 Khâm Thiên - Quận Đống Đa"><strong>Store
+												7:</strong> 43 Khâm Thiên - Quận Đống Đa</li>
+									</ul>
+								</div>
+								<div class="footer-col1-links">
+									<div class="adress-item">
+										<ul class="clearfix xx-menu">
+											<li><a href="/pages/chinh-sach-doi-tra-hang" class="title-menux">Chính Sách
+													Đổi Trả</a></li>
+											<li><a href="/pages/about-us" class="title-menux">Giới thiệu</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="footer-address col-xs-12 visible-xs">
+						<h4 class="title-footer footer-toggle active">Hệ thống cửa hàng</h4>
+						<div class="footer-content clearfix">
+							<div class="row">
+								<div class="col-md-6 col-sm-6 col-xs-12 footer-shop">
+									<h2 class="city">TP. Hồ Chí Minh</h2>
+									<div>
+										<div class="adress-item">
+											<ul>
+												<li class="add"
+													data-store="17bis Huỳnh Đình Hai Phường 14 - Quận Bình Thạnh">
+													<strong>Store 1:</strong> 17bis Huỳnh Đình Hai Phường 14 -
+													Quận Bình Thạnh
+												</li>
+											</ul>
+										</div>
+										<div class="adress-item">
+											<ul>
+												<li class="add" data-store="332 Cao Đạt Phường 1 - Quận 5">
+													<strong>Store 2:</strong> 332 Cao Đạt Phường 1 - Quận 5
+												</li>
+											</ul>
+										</div>
+										<div class="adress-item">
+											<ul>
+												<li class="add" data-store="539 Sư Vạn Hạnh Phường 13 - Quận 10">
+													<strong>Store 3:</strong> 539 Sư Vạn Hạnh Phường 13 - Quận
+													10
+												</li>
+											</ul>
+										</div>
+										<div class="adress-item">
+											<ul>
+												<li class="add" data-store="1002 Quang Trung Phường 8 - Quận Gò Vấp">
+													<strong>Store 4:</strong> 1002 Quang Trung Phường 8 - Quận
+													Gò Vấp
+												</li>
+											</ul>
+										</div>
+										<div class="adress-item">
+											<ul>
+												<li class="add" data-store="164 Trường Chinh Phường 13 - Quận Tân Bình">
+													<strong>Store 5:</strong> 164 Trường Chinh Phường 13 - Quận
+													Tân Bình
+												</li>
+											</ul>
+										</div>
+										<div class="adress-item">
+											<ul>
+												<li class="add" data-store="148 Nguyễn Trãi P.Bến Thành - Quận 1">
+													<strong>Store 6:</strong> 148 Nguyễn Trãi P.Bến Thành - Quận
+													1
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-6 col-xs-12 footer-shop">
+									<h2 class="city">Hà nội</h2>
+									<div class="adress-item hn">
+										<ul>
+											<li class="add" data-store="43 Khâm Thiên - Quận Đống Đa">
+												<strong>Store 7:</strong> 43 Khâm Thiên - Quận Đống Đa
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-address col-xs-12 visible-xs footer-link">
+
+						<div class="footer-col1-links">
+							<div class="adress-item">
+								<ul class="clearfix xx-menu">
+									<li><a href="/pages/chinh-sach-doi-tra-hang" class="title-menux">Chính Sách
+											Đổi Trả</a></li>
+									<li><a href="/pages/about-us" class="title-menux">Giới thiệu</a></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4 col-xs-12 footer-right fotter-border">
+
+						<div class="footer-col-right">
+							<h4 class="title-footer">Hỗ trợ (9:00 - 21:00)</h4>
+							<ul class="link-footer-contact">
+
+								<li><a href="tel:02873076464"><img
+											src="//theme.hstatic.net/1000026602/1000983046/14/headphones.png?v=607" />028
+										7307 6464</a></li>
+
+
+								<li><a href="mailto:info@somehow.vn"><img
+											src="//theme.hstatic.net/1000026602/1000983046/14/mail.png?v=607" />info@somehow.vn</a>
+								</li>
+
+							</ul>
+						</div>
+
+
+						<div class="footer-col-right">
+							<h4 class="title-footer">Theo dõi chúng tôi</h4>
+							<div class="flex-social">
+								<ul class="clearfix social">
+
+									<li>
+										<a href="https://www.facebook.com/somehow.vn" class="ico-social-ft fb">
+											<img class="lazyload" data-sizes="auto"
+												data-src="//theme.hstatic.net/1000026602/1000983046/14/icon_fbn.png?v=607"
+												data-lowsrc="//theme.hstatic.net/1000026602/1000983046/14/icon_fbn.png?v=607"
+												src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+										</a>
+									</li>
+
+
+									<li><a href="https://www.instagram.com/somehow.vn/" class="ico-social-ft in">
+											<img class="lazyload" data-sizes="auto"
+												data-src="//theme.hstatic.net/1000026602/1000983046/14/icon_instan.png?v=607"
+												data-lowsrc="//theme.hstatic.net/1000026602/1000983046/14/icon_instan.png?v=607"
+												src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+										</a>
+									</li>
+
+
+									<li><a href="https://www.tiktok.com/@somehowmen" class="ico-social-ft in">
+											<img class="lazyload" data-sizes="auto"
+												data-src="//theme.hstatic.net/1000026602/1000983046/14/icon_tiktok.png?v=607"
+												data-lowsrc="//theme.hstatic.net/1000026602/1000983046/14/icon_tiktok.png?v=607"
+												src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+										</a>
+									</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+
+						<div class="footer-col-right">
+							<h4 class="title-footer">Phương thức thanh toán</h4>
+							<div class="flex-social">
+								<div class="image-footer">
+									<img class="lazyload" data-sizes="auto"
+										data-src="//theme.hstatic.net/1000026602/1000983046/14/img-payment.png?v=607"
+										data-lowsrc="//theme.hstatic.net/1000026602/1000983046/14/img-payment.png?v=607"
+										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+										alt="Phương thức thanh toán" />
+								</div>
+								<div class="logo-footer ratiobox">
+									<a href="http://online.gov.vn/Home/WebDetails/79143" target="_blank"
+										rel="nofollow noreferrer" aria-label="Logo bộ công thương">
+										<img class="lazyload" data-sizes="auto"
+											data-src="//theme.hstatic.net/1000026602/1000983046/14/thongbao.png?v=607"
+											data-lowsrc="//theme.hstatic.net/1000026602/1000983046/14/thongbao.png?v=607"
+											src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+											alt="Bộ Công Thương">
+									</a>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="copyright">
+			© Since 2015 SOMEHOW
+
+		</div>
+	</footer>
+
 </body>
+
 </html>
